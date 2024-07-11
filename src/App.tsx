@@ -1,3 +1,4 @@
+// eslint-disable-next-line import/no-unresolved
 import { Button } from '@/components/ui/button'
 
 export function App() {
