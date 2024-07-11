@@ -1,11 +1,12 @@
-import { Button } from '@/components/ui/button/button'
+import { Button } from '@/components/ui/button'
 
 export function App() {
   return (
     <div>
-      Hello
-      <Button >Hello</Button>
-        <Button variant={'secondary'}>Secondary</Button>
+      <Button variant={'primary'}>Button</Button>
+      <Button as={'a'} href={'/'} variant={'primary'}>
+        Link
+      </Button>
     </div>
   )
 }
