@@ -11,6 +11,12 @@ importers:
       '@fontsource/roboto':
         specifier: ^5.0.13
         version: 5.0.13
+      '@storybook/manager-api':
+        specifier: ^8.2.2
+        version: 8.2.2(storybook@8.1.11(@babel/preset-env@7.24.7(@babel/core@7.24.7))(react-dom@18.3.1(react@18.3.1))(react@18.3.1))
+      '@storybook/theming':
+        specifier: ^8.2.2
+        version: 8.2.2(storybook@8.1.11(@babel/preset-env@7.24.7(@babel/core@7.24.7))(react-dom@18.3.1(react@18.3.1))(react@18.3.1))
       react:
         specifier: ^18.3.1
         version: 18.3.1
@@ -1583,6 +1589,11 @@ packages:
   '@storybook/manager-api@8.1.11':
     resolution: {integrity: sha512-QSgwKfAw01K9YvvZj30iGBMgQ4YaCT3vojmttuqdH5ukyXkiO7pENLJj4Y+alwUeSi0g+SJeadCI3PXySBHOGg==}
 
+  '@storybook/manager-api@8.2.2':
+    resolution: {integrity: sha512-v7pbddJO21RAsGyT0+GZMgP25nLCdhQFYnmy+aRCgL6rz+k7bToPwcL+qK0mb5sfng+Ah2MAAK9ZvXWTYAVeqw==}
+    peerDependencies:
+      storybook: ^8.2.2
+
   '@storybook/manager@8.1.11':
     resolution: {integrity: sha512-e02y9dmxowo7cTKYm9am7UO6NOHoHy6Xi7xZf/UA932qLwFZUtk5pnwIEFaZWI3OQsRUCGhP+FL5zizU7uVZeg==}
 
@@ -1639,6 +1650,11 @@ packages:
         optional: true
       react-dom:
         optional: true
+
+  '@storybook/theming@8.2.2':
+    resolution: {integrity: sha512-byjEORePZyUDsGuGlZ8qamZPXmkM6rNMWaMaTxsp7XaQJc7J6fcb9n96R3JjU0vzqS8QpsxJSS+VJ2ur2zS7Sw==}
+    peerDependencies:
+      storybook: ^8.2.2
 
   '@storybook/types@8.1.11':
     resolution: {integrity: sha512-k9N5iRuY2+t7lVRL6xeu6diNsxO3YI3lS4Juv3RZ2K4QsE/b3yG5ElfJB8DjHDSHwRH4ORyrU71KkOCUVfvtnw==}
@@ -6688,6 +6704,10 @@ snapshots:
       - react
       - react-dom
 
+  '@storybook/manager-api@8.2.2(storybook@8.1.11(@babel/preset-env@7.24.7(@babel/core@7.24.7))(react-dom@18.3.1(react@18.3.1))(react@18.3.1))':
+    dependencies:
+      storybook: 8.1.11(@babel/preset-env@7.24.7(@babel/core@7.24.7))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+
   '@storybook/manager@8.1.11': {}
 
   '@storybook/node-logger@8.1.11': {}
@@ -6822,6 +6842,10 @@ snapshots:
     optionalDependencies:
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
+
+  '@storybook/theming@8.2.2(storybook@8.1.11(@babel/preset-env@7.24.7(@babel/core@7.24.7))(react-dom@18.3.1(react@18.3.1))(react@18.3.1))':
+    dependencies:
+      storybook: 8.1.11(@babel/preset-env@7.24.7(@babel/core@7.24.7))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
 
   '@storybook/types@8.1.11':
     dependencies:
