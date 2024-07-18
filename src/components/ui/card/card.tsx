@@ -1,5 +1,3 @@
-import React from 'react'
-
 import s from './card.module.scss'
 
 export const Card = () => {

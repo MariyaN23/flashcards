@@ -1,17 +1,20 @@
-import React, { LegacyRef } from 'react'
+import React, { ComponentPropsWithoutRef, ElementType, LegacyRef } from 'react'
 
-export type InputProps = {
+export type InputProps<T extends ElementType = 'input'> = {
   as?: any
   className?: string
   errorMessage?: string
   label?: string
   variant?: 'default' | 'search' | 'withIcon'
-}
+} & ComponentPropsWithoutRef<T>
 
 import s from './text-field.module.scss'
 
 export const TextField = React.forwardRef(
-  (props: InputProps, ref: LegacyRef<HTMLInputElement> | undefined) => {
+  <T extends ElementType = 'input'>(
+    props: InputProps<T>,
+    ref: LegacyRef<HTMLInputElement> | undefined
+  ) => {
     const { className, errorMessage, variant = 'default', ...rest } = props
 
     return (
