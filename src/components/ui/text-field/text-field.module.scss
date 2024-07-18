@@ -56,6 +56,10 @@
   }
 }
 
+p {
+  color: var(--color-danger-300);
+}
+
 .withIcon {
   background-image: url('./../../../assets/images/eye.png');
   background-repeat: no-repeat;

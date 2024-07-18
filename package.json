@@ -14,14 +14,17 @@
   },
   "dependencies": {
     "@fontsource/roboto": "^5.0.13",
+    "@hookform/resolvers": "^3.9.0",
     "@storybook/manager-api": "^8.2.2",
     "@storybook/theming": "^8.2.2",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
-    "react-hook-form": "^7.52.1"
+    "react-hook-form": "^7.52.1",
+    "zod": "^3.23.8"
   },
   "devDependencies": {
     "@chromatic-com/storybook": "1.6.1",
+    "@hookform/devtools": "^4.3.1",
     "@it-incubator/eslint-config": "^1.0.3",
     "@it-incubator/prettier-config": "^0.1.2",
     "@it-incubator/stylelint-config": "^2.0.0",
