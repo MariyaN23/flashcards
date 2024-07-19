@@ -1,21 +1,21 @@
 import React, { ComponentPropsWithoutRef, ElementType, LegacyRef } from 'react'
 
-export type CheckboxProps<T extends ElementType = 'input'> = {
+export type RadioGroupProps<T extends ElementType = 'input'> = {
   as?: T
   label?: string
 } & ComponentPropsWithoutRef<T>
 
-import s from './checkbox.module.scss'
+import s from './radio-group.module.scss'
 
-export const Checkbox = React.forwardRef(
+export const RadioGroup = React.forwardRef(
   <T extends ElementType = 'input'>(
-    props: CheckboxProps<T>,
+    props: RadioGroupProps<T>,
     ref: LegacyRef<HTMLInputElement> | undefined
   ) => {
     return (
-      <div className={s.checkbox}>
+      <div className={s.radioGroup}>
         <label className={s.label}>
-          <input type={'checkbox'} {...props} ref={ref} />
+          <input type={'radio'} {...props} ref={ref} />
           {props.label}
         </label>
       </div>
