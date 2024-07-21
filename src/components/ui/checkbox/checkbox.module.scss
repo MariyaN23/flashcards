@@ -11,34 +11,4 @@ input {
 .label {
   display: flex;
   align-items: center;
-
-  &::before {
-    content: '';
-
-    position: absolute;
-    z-index: -1;
-    left: -2px;
-
-    display: inline-block;
-
-    width: 36px;
-    height: 36px;
-
-    opacity: 0;
-    background-color: var(--color-dark-500);
-    border-radius: 36px;
-  }
-
-  &:hover {
-    &::before {
-      opacity: 1;
-    }
-  }
-
-  &:active {
-    &::before {
-      opacity: 1;
-      background-color: var(--color-dark-100);
-    }
-  }
 }

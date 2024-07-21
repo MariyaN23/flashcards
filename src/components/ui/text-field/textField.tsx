@@ -8,6 +8,8 @@ export type InputProps<T extends ElementType = 'input'> = {
   variant?: 'default' | 'search' | 'withIcon'
 } & ComponentPropsWithoutRef<T>
 
+import { Typography } from '@/components/ui/typography'
+
 import s from './text-field.module.scss'
 
 export const TextField = React.forwardRef(
@@ -19,15 +21,16 @@ export const TextField = React.forwardRef(
 
     return (
       <div>
-        <label>
-          {props.label}
+        <Typography as={'label'} className={s.fieldText} variant={'body2'}>
+          <span className={s.greyLabel}>{props.label}</span>
+          <br />
           <input
             className={`${s.input} ${s[variant]} ${className} ${errorMessage ? s.error : ''}`}
             {...rest}
             ref={ref}
           />
-          <p>{errorMessage}</p>
-        </label>
+          <Typography variant={'error'}>{errorMessage}</Typography>
+        </Typography>
       </div>
     )
   }

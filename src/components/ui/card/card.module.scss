@@ -1,5 +1,12 @@
 .card {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+
   width: 420px;
   height: 550px;
+  padding: 20px;
+
   background-color: var(--color-dark-700);
 }

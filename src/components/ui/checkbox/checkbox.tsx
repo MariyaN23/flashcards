@@ -5,6 +5,8 @@ export type CheckboxProps<T extends ElementType = 'input'> = {
   label?: string
 } & ComponentPropsWithoutRef<T>
 
+import { Typography } from '@/components/ui/typography'
+
 import s from './checkbox.module.scss'
 
 export const Checkbox = React.forwardRef(
@@ -14,10 +16,10 @@ export const Checkbox = React.forwardRef(
   ) => {
     return (
       <div className={s.checkbox}>
-        <label className={s.label}>
+        <Typography as={'label'} className={s.label} variant={'body2'}>
           <input type={'checkbox'} {...props} ref={ref} />
           {props.label}
-        </label>
+        </Typography>
       </div>
     )
   }

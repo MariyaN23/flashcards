@@ -1,0 +1,17 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.recoverPasswordLink,
+.recoverPasswordLink:visited {
+  display: flex;
+  justify-content: flex-end;
+
+  width: 100%;
+
+  color: inherit;
+  text-align: right;
+  text-decoration: none;
+}

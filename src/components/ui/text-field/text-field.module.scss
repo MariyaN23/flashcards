@@ -56,10 +56,6 @@
   }
 }
 
-p {
-  color: var(--color-danger-300);
-}
-
 .withIcon {
   background-image: url('./../../../assets/images/eye.png');
   background-repeat: no-repeat;
@@ -83,4 +79,8 @@ p {
   &:disabled {
     background-image: url('./../../../assets/images/search.png');
   }
+}
+
+.greyLabel {
+  color: var(--color-dark-100);
 }
