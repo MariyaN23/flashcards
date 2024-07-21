@@ -30,7 +30,7 @@ export function Typography<T extends ElementType = 'p'>({
   variant = 'body1',
   ...restProps
 }: Omit<ComponentPropsWithoutRef<T>, keyof TextProps<T>> & TextProps<T>) {
-  const classNames = clsx(s.text, s[variant], className)
+  const classNames = clsx(className, s.text, s[variant])
   const Component = as || 'p'
 
   return <Component className={classNames} {...restProps} />

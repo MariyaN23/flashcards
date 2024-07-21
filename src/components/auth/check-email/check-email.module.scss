@@ -1,0 +1,11 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.caption {
+  margin-bottom: 11px;
+  color: var(--color-light-900);
+  text-align: center;
+}

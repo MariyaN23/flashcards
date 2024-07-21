@@ -1,5 +1,11 @@
-import { SignIn } from '@/components/auth/sign-in/sign-in'
+import { CreatePassword } from '@/components/auth/create-password/create-password'
+import { Header } from '@/components/ui/header/header'
 
 export function App() {
-  return <SignIn />
+  return (
+    <>
+      <Header />
+      <CreatePassword />
+    </>
+  )
 }
