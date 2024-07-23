@@ -2,7 +2,7 @@ import { ComponentPropsWithoutRef, ElementType, ReactNode } from 'react'
 
 export type ButtonProps<T extends ElementType = 'button'> = {
   as?: T
-  children: ReactNode
+  children?: ReactNode
   fullWidth?: boolean
   variant?: 'primary' | 'secondary'
 } & ComponentPropsWithoutRef<T>
