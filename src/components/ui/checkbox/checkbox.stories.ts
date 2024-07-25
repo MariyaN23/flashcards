@@ -3,11 +3,6 @@ import type { Meta, StoryObj } from '@storybook/react'
 import { Checkbox } from './'
 
 const meta = {
-  argTypes: {
-    variant: {
-      control: { type: 'radio' },
-    },
-  },
   component: Checkbox,
   tags: ['autodocs'],
   title: 'Components/Checkbox',
