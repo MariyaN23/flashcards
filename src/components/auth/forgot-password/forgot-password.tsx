@@ -11,7 +11,6 @@ import { Link } from 'react-router-dom'
 
 import { Card } from '@/components/ui/card/card'
 import { Typography } from '@/components/ui/typography'
-import { Link1 } from '@/components/ui/typography/typography.stories'
 import { DevTool } from '@hookform/devtools'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { z } from 'zod'
@@ -20,7 +19,13 @@ const loginSchema = z.object({
   email: z.string().email(),
 })
 
-export const ForgotPassword = () => {
+type FormType = z.infer<typeof loginSchema>
+
+type Props = {
+  onSubmit: (data: FormType) => void
+}
+
+export const ForgotPassword = (props: Props) => {
   const {
     control,
     formState: { errors },
@@ -30,9 +35,7 @@ export const ForgotPassword = () => {
     resolver: zodResolver(loginSchema),
   })
 
-  const onSubmit = handleSubmit(data => {
-    console.log(data)
-  })
+  const onSubmit = handleSubmit(props.onSubmit)
 
   return (
     <Card>

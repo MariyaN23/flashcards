@@ -1,0 +1,63 @@
+.personalContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+
+  button {
+    cursor: pointer;
+  }
+
+  .photoContainer {
+    position: relative;
+    width: 100px;
+    height: 100px;
+
+    .avatar {
+      width: 100px;
+      height: 100px;
+      object-fit: cover;
+      border-radius: 50%;
+    }
+
+    .editAvatarButton {
+      position: absolute;
+      right: 0;
+      bottom: 0;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      width: 25px;
+      height: 25px;
+
+      background-color: var(--color-dark-300);
+      border: none;
+      border-radius: 4px;
+    }
+  }
+
+  .nameWithEditButton {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .editNameButton {
+      width: 25px;
+      height: 25px;
+      background-color: transparent;
+      border: none;
+    }
+  }
+
+  .email {
+    color: var(--color-dark-100);
+  }
+
+  .buttonContainer {
+    img {
+      margin-right: 5px;
+    }
+  }
+}

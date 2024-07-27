@@ -20,15 +20,13 @@ type Story = StoryObj<typeof meta>
 export const Default: Story = {
   args: {
     placeholder: 'Input',
-    variant: 'default',
   },
 }
 
 export const DefaultError: Story = {
   args: {
-    error: true,
+    errorMessage: 'Error',
     placeholder: 'Input',
-    variant: 'default',
   },
 }
 
@@ -36,22 +34,21 @@ export const DefaultDisabled: Story = {
   args: {
     disabled: true,
     placeholder: 'Input',
-    variant: 'default',
   },
 }
 
 export const Search: Story = {
   args: {
     placeholder: 'Input search',
-    variant: 'search',
+    type: 'search',
   },
 }
 
 export const SearchError: Story = {
   args: {
-    error: true,
+    errorMessage: 'Error',
     placeholder: 'Input search',
-    variant: 'search',
+    type: 'search',
   },
 }
 
@@ -59,29 +56,32 @@ export const SearchDisabled: Story = {
   args: {
     disabled: true,
     placeholder: 'Input search',
-    variant: 'search',
+    type: 'search',
   },
 }
 
-export const WithIcon: Story = {
+export const Password: Story = {
   args: {
     placeholder: 'Input',
+    type: 'password',
     variant: 'withIcon',
   },
 }
 
-export const WithIconError: Story = {
+export const PasswordError: Story = {
   args: {
-    error: true,
+    errorMessage: 'Error',
     placeholder: 'Input',
+    type: 'password',
     variant: 'withIcon',
   },
 }
 
-export const WithIconDisabled: Story = {
+export const PasswordDisabled: Story = {
   args: {
     disabled: true,
     placeholder: 'Input',
+    type: 'password',
     variant: 'withIcon',
   },
 }

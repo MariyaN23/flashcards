@@ -21,7 +21,13 @@ const loginSchema = z.object({
   password: z.string().min(3),
 })
 
-export const SignUp = () => {
+type FormType = z.infer<typeof loginSchema>
+
+type Props = {
+  onSubmit: (data: FormType) => void
+}
+
+export const SignUp = (props: Props) => {
   const {
     control,
     formState: { errors },
@@ -31,9 +37,7 @@ export const SignUp = () => {
     resolver: zodResolver(loginSchema),
   })
 
-  const onSubmit = handleSubmit(data => {
-    console.log(data)
-  })
+  const onSubmit = handleSubmit(props.onSubmit)
 
   return (
     <Card>

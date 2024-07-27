@@ -1,5 +1,4 @@
 import { useForm } from 'react-hook-form'
-import { Link } from 'react-router-dom'
 
 import { Card } from '@/components/ui/card/card'
 import { Typography } from '@/components/ui/typography'
@@ -18,7 +17,13 @@ const loginSchema = z.object({
   password: z.string().min(3),
 })
 
-export const CreatePassword = () => {
+type FormType = z.infer<typeof loginSchema>
+
+type Props = {
+  onSubmit: (data: FormType) => void
+}
+
+export const CreatePassword = (props: Props) => {
   const {
     control,
     formState: { errors },
@@ -28,9 +33,7 @@ export const CreatePassword = () => {
     resolver: zodResolver(loginSchema),
   })
 
-  const onSubmit = handleSubmit(data => {
-    console.log(data)
-  })
+  const onSubmit = handleSubmit(props.onSubmit)
 
   return (
     <Card>
@@ -43,6 +46,7 @@ export const CreatePassword = () => {
           {...register('password')}
           errorMessage={errors.password?.message}
           label={'Password'}
+          type={'password'}
           variant={'withIcon'}
         />
         <Typography className={s.caption} variant={'body2'}>

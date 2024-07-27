@@ -1,7 +1,5 @@
 import { useForm } from 'react-hook-form'
 
-import { Checkbox } from '@/components/ui/checkbox'
-
 import s from './sign-in.module.scss'
 
 import { Button } from '../../ui/button'
@@ -12,6 +10,7 @@ type FormValues = z.infer<typeof loginSchema>
 import { Link } from 'react-router-dom'
 
 import { Card } from '@/components/ui/card/card'
+import { ControlledCheckbox } from '@/components/ui/checkbox/controlled-checkbox'
 import { Typography } from '@/components/ui/typography'
 import { DevTool } from '@hookform/devtools'
 import { zodResolver } from '@hookform/resolvers/zod'
@@ -23,7 +22,13 @@ const loginSchema = z.object({
   rememberMe: z.boolean().default(false),
 })
 
-export const SignIn = () => {
+type FormType = z.infer<typeof loginSchema>
+
+type Props = {
+  onSubmit: (data: FormType) => void
+}
+
+export const SignIn = (props: Props) => {
   const {
     control,
     formState: { errors },
@@ -33,9 +38,7 @@ export const SignIn = () => {
     resolver: zodResolver(loginSchema),
   })
 
-  const onSubmit = handleSubmit(data => {
-    console.log(data)
-  })
+  const onSubmit = handleSubmit(props.onSubmit)
 
   return (
     <Card>
@@ -52,7 +55,7 @@ export const SignIn = () => {
           type={'password'}
           variant={'withIcon'}
         />
-        <Checkbox {...register('rememberMe')} label={'Remember me'} />
+        <ControlledCheckbox control={control} label={'Remember me'} name={'rememberMe'} />
         <Typography
           as={Link}
           className={s.recoverPasswordLink}
