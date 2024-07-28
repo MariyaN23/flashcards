@@ -1,24 +1,36 @@
-import React, { ComponentPropsWithoutRef, ElementType, LegacyRef } from 'react'
+import React from 'react'
 
-export type RadioGroupProps<T extends ElementType = 'input'> = {
-  as?: T
-  label?: string
-} & ComponentPropsWithoutRef<T>
+import { RadioGroupItem } from '@/components/ui/radio-group/radio-group-item/radio-group-item'
+import { RadioGroupRoot } from '@/components/ui/radio-group/radio-group-item/radio-group-root'
+import { Typography } from '@/components/ui/typography'
+import * as RadioGroupPrimitive from '@radix-ui/react-radio-group'
 
 import s from './radio-group.module.scss'
 
-export const RadioGroup = React.forwardRef(
-  <T extends ElementType = 'input'>(
-    props: RadioGroupProps<T>,
-    ref: LegacyRef<HTMLInputElement> | undefined
-  ) => {
-    return (
-      <div className={s.radioGroup}>
-        <label className={s.label}>
-          <input type={'radio'} {...props} ref={ref} />
-          {props.label}
-        </label>
-      </div>
-    )
-  }
-)
+type Option = {
+  label: string
+  value: string
+}
+export type RadioGroupProps = {
+  errorMessage?: string
+  options: Option[]
+} & Omit<React.ComponentPropsWithoutRef<typeof RadioGroupPrimitive.Root>, 'children'>
+export const RadioGroup = React.forwardRef<
+  React.ElementRef<typeof RadioGroupPrimitive.Root>,
+  RadioGroupProps
+>((props, ref) => {
+  const { errorMessage, options, ...restProps } = props
+
+  return (
+    <RadioGroupRoot {...restProps} ref={ref}>
+      {options.map(option => (
+        <div className={s.label} key={option.value}>
+          <RadioGroupItem id={option.value} value={option.value} />
+          <Typography as={'label'} htmlFor={option.value} variant={'body2'}>
+            {option.label}
+          </Typography>
+        </div>
+      ))}
+    </RadioGroupRoot>
+  )
+})
