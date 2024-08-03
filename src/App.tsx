@@ -1,11 +1,5 @@
-import { CreatePassword } from '@/components/auth/create-password'
-import { Header } from '@/components/ui/header/header'
+import { Router } from '@/router'
 
 export function App() {
-  return (
-    <>
-      <Header />
-      <CreatePassword />
-    </>
-  )
+  return <Router />
 }
