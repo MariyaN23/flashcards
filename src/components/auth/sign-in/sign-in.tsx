@@ -3,7 +3,6 @@ import { useForm } from 'react-hook-form'
 import s from './sign-in.module.scss'
 
 import { Button } from '../../ui/button'
-import { TextField } from '../../ui/text-field'
 
 type FormValues = z.infer<typeof loginSchema>
 
@@ -11,6 +10,7 @@ import { Link } from 'react-router-dom'
 
 import { Card } from '@/components/ui/card/card'
 import { ControlledCheckbox } from '@/components/ui/checkbox/controlled-checkbox'
+import { ControlledTextField } from '@/components/ui/text-field/controlled-text-field'
 import { Typography } from '@/components/ui/typography'
 import { DevTool } from '@hookform/devtools'
 import { zodResolver } from '@hookform/resolvers/zod'
@@ -29,12 +29,7 @@ type Props = {
 }
 
 export const SignIn = (props: Props) => {
-  const {
-    control,
-    formState: { errors },
-    handleSubmit,
-    register,
-  } = useForm<FormValues>({
+  const { control, handleSubmit } = useForm<FormValues>({
     resolver: zodResolver(loginSchema),
   })
 
@@ -47,13 +42,18 @@ export const SignIn = (props: Props) => {
       </Typography>
       <form className={s.form} onSubmit={onSubmit}>
         <DevTool control={control} />
-        <TextField {...register('email')} errorMessage={errors.email?.message} label={'Email'} />
-        <TextField
-          {...register('password')}
-          errorMessage={errors.password?.message}
+        <ControlledTextField
+          control={control}
+          label={'Email'}
+          name={'email'}
+          placeholder={'Email'}
+        />
+        <ControlledTextField
+          control={control}
           label={'Password'}
+          name={'password'}
+          placeholder={'Password'}
           type={'password'}
-          variant={'withIcon'}
         />
         <ControlledCheckbox control={control} label={'Remember me'} name={'rememberMe'} />
         <Typography

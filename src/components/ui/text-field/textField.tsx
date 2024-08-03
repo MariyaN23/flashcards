@@ -12,7 +12,7 @@ import close from '../../../assets/images/close.svg'
 import eye from '../../../assets/images/eye.svg'
 import eyeOff from '../../../assets/images/eye-off.svg'
 
-export type InputProps<T extends ElementType = 'input'> = {
+export type TextFieldProps<T extends ElementType = 'input'> = {
   as?: any
   className?: string
   errorMessage?: string
@@ -30,7 +30,7 @@ import s from './text-field.module.scss'
 
 export const TextField = React.forwardRef(
   <T extends ElementType = 'input'>(
-    props: InputProps<T>,
+    props: TextFieldProps<T>,
     ref: LegacyRef<HTMLInputElement> | undefined
   ) => {
     const [revealPassword, setRevealPassword] = useState(false)

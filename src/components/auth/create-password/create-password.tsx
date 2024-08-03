@@ -1,6 +1,7 @@
 import { useForm } from 'react-hook-form'
 
 import { Card } from '@/components/ui/card/card'
+import { ControlledTextField } from '@/components/ui/text-field/controlled-text-field'
 import { Typography } from '@/components/ui/typography'
 import { DevTool } from '@hookform/devtools'
 import { zodResolver } from '@hookform/resolvers/zod'
@@ -9,7 +10,6 @@ import { z } from 'zod'
 import s from './create-password.module.scss'
 
 import { Button } from '../../ui/button'
-import { TextField } from '../../ui/text-field'
 
 type FormValues = z.infer<typeof loginSchema>
 
@@ -24,12 +24,7 @@ type Props = {
 }
 
 export const CreatePassword = (props: Props) => {
-  const {
-    control,
-    formState: { errors },
-    handleSubmit,
-    register,
-  } = useForm<FormValues>({
+  const { control, handleSubmit } = useForm<FormValues>({
     resolver: zodResolver(loginSchema),
   })
 
@@ -42,12 +37,12 @@ export const CreatePassword = (props: Props) => {
       </Typography>
       <form className={s.form} onSubmit={onSubmit}>
         <DevTool control={control} />
-        <TextField
-          {...register('password')}
-          errorMessage={errors.password?.message}
+        <ControlledTextField
+          control={control}
           label={'Password'}
+          name={'password'}
+          placeholder={'Password'}
           type={'password'}
-          variant={'withIcon'}
         />
         <Typography className={s.caption} variant={'body2'}>
           {`Create new password and we will send you further instructions to email`}

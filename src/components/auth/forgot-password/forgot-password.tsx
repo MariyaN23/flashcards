@@ -3,13 +3,13 @@ import { useForm } from 'react-hook-form'
 import s from './forgot-password.module.scss'
 
 import { Button } from '../../ui/button'
-import { TextField } from '../../ui/text-field'
 
 type FormValues = z.infer<typeof loginSchema>
 
 import { Link } from 'react-router-dom'
 
 import { Card } from '@/components/ui/card/card'
+import { ControlledTextField } from '@/components/ui/text-field/controlled-text-field'
 import { Typography } from '@/components/ui/typography'
 import { DevTool } from '@hookform/devtools'
 import { zodResolver } from '@hookform/resolvers/zod'
@@ -26,12 +26,7 @@ type Props = {
 }
 
 export const ForgotPassword = (props: Props) => {
-  const {
-    control,
-    formState: { errors },
-    handleSubmit,
-    register,
-  } = useForm<FormValues>({
+  const { control, handleSubmit } = useForm<FormValues>({
     resolver: zodResolver(loginSchema),
   })
 
@@ -44,7 +39,12 @@ export const ForgotPassword = (props: Props) => {
       </Typography>
       <form className={s.form} onSubmit={onSubmit}>
         <DevTool control={control} />
-        <TextField {...register('email')} errorMessage={errors.email?.message} label={'Email'} />
+        <ControlledTextField
+          control={control}
+          label={'Email'}
+          name={'email'}
+          placeholder={'Email'}
+        />
         <Typography className={s.caption} variant={'body2'}>
           {`Enter your email address and we will send you further instructions`}
         </Typography>

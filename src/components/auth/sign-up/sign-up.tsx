@@ -3,13 +3,13 @@ import { useForm } from 'react-hook-form'
 import s from './sign-up.module.scss'
 
 import { Button } from '../../ui/button'
-import { TextField } from '../../ui/text-field'
 
 type FormValues = z.infer<typeof loginSchema>
 
 import { Link } from 'react-router-dom'
 
 import { Card } from '@/components/ui/card/card'
+import { ControlledTextField } from '@/components/ui/text-field/controlled-text-field'
 import { Typography } from '@/components/ui/typography'
 import { DevTool } from '@hookform/devtools'
 import { zodResolver } from '@hookform/resolvers/zod'
@@ -28,12 +28,7 @@ type Props = {
 }
 
 export const SignUp = (props: Props) => {
-  const {
-    control,
-    formState: { errors },
-    handleSubmit,
-    register,
-  } = useForm<FormValues>({
+  const { control, handleSubmit } = useForm<FormValues>({
     resolver: zodResolver(loginSchema),
   })
 
@@ -46,20 +41,25 @@ export const SignUp = (props: Props) => {
       </Typography>
       <form className={s.form} onSubmit={onSubmit}>
         <DevTool control={control} />
-        <TextField {...register('email')} errorMessage={errors.email?.message} label={'Email'} />
-        <TextField
-          {...register('password')}
-          errorMessage={errors.password?.message}
-          label={'Password'}
-          type={'password'}
-          variant={'withIcon'}
+        <ControlledTextField
+          control={control}
+          label={'Email'}
+          name={'email'}
+          placeholder={'Email'}
         />
-        <TextField
-          {...register('confirmPassword')}
-          errorMessage={errors.confirmPassword?.message}
-          label={'Confirm Password'}
+        <ControlledTextField
+          control={control}
+          label={'Password'}
+          name={'password'}
+          placeholder={'Password'}
           type={'password'}
-          variant={'withIcon'}
+        />
+        <ControlledTextField
+          control={control}
+          label={'Confirm Password'}
+          name={'confirmPassword'}
+          placeholder={'Confirm password'}
+          type={'password'}
         />
         <Button fullWidth type={'submit'}>
           Sign Up
