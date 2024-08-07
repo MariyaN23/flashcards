@@ -1,0 +1,62 @@
+.selectPageNumber {
+  display: flex;
+
+  .selectBorder {
+    position: relative;
+
+    width: 60px;
+    margin: 0 5px;
+    padding: 0 5px;
+
+    background-color: var(--color-dark-700);
+    border: 1px solid var(--color-dark-500);
+
+    .selectedOptions {
+      cursor: pointer;
+
+      .optionItems {
+        position: absolute;
+        right: -1px;
+
+        width: 60px;
+
+        background-color: var(--color-dark-700);
+        border: 1px solid var(--color-dark-500);
+
+        .option {
+          &:hover {
+            color: var(--color-accent-300);
+            background-color: var(--color-accent-900);
+          }
+        }
+      }
+    }
+  }
+}
+
+.arrowButton {
+  width: 20px;
+  height: 20px;
+  background-color: transparent;
+  border: none;
+}
+
+.paginationButton {
+  width: 25px;
+  height: 25px;
+  margin: 0 5px;
+
+  font-weight: var(--font-weight-regular);
+  color: var(--color-dark-900);
+
+  background-color: var(--color-light-100);
+  border-radius: 2px;
+
+  &:active:active {
+    background-color: var(--color-light-100);
+  }
+
+  &:hover {
+    background-color: var(--color-dark-500);
+  }
+}
