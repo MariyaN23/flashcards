@@ -47,3 +47,7 @@ export interface CreateDeckArgs {
 export type UpdateDeckArgs = { id: string } & Partial<CreateDeckArgs>
 
 export type DeleteDeckArgs = { id: string }
+
+export type DeckResponse = Deck
+
+export type GetDeckByIdArgs = { id: string }
